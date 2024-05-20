@@ -1,18 +1,18 @@
 {
-  "compilerOptions": {
-    "strictNullChecks": true,
-    "strict": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "resolveJsonModule": true,
-    "baseUrl": "./",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "antdv": ["src"],
-      "antdv/*": ["src/*", "*"]
-    }
-  },
-  "include": [".dumirc.ts", "src/**/*"]
+	"compilerOptions": {
+		"strictNullChecks": true,
+		"strict": true,
+		"declaration": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"resolveJsonModule": true,
+		"baseUrl": "./",
+		"paths": {
+			"@@/*": [".dumi/tmp/*"],
+			"antdv": ["src"],
+			"antdv/*": ["src/*", "*"]
+		}
+	},
+	"include": [".dumirc.ts", "src/**/*"]
 }

@@ -10,9 +10,6 @@ export default defineConfig({
     devServer: {
       port: 1998, // 自定义端口号
     },
-    base: `/${repo}/`,
-    publicPath: `/${repo}/`,
-    exportStatic: {},
     lastUpdated: true,
     nav: {
       'zh-CN': [
@@ -246,4 +243,7 @@ export default defineConfig({
       },
     ],
   }),
+  base: `/${repo}/`,
+  publicPath: `/${repo}/`,
+  exportStatic: {},
 });

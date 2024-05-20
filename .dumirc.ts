@@ -1,9 +1,18 @@
 import { defineConfig } from 'dumi';
 import { defineThemeConfig } from 'dumi-theme-antd/dist/defineThemeConfig';
+
+const repo = 'antdv';
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: defineThemeConfig({
     name: 'antdv',
+    mode: 'site',
+    devServer: {
+      port: 1998, // 自定义端口号
+    },
+    base: `/${repo}/`,
+    publicPath: `/${repo}/`,
+    exportStatic: {},
     lastUpdated: true,
     nav: {
       'zh-CN': [

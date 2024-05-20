@@ -1,0 +1,43 @@
+name: CI
+
+# en: Set the event to pull request event and push event of the main branch
+# zh: Event 设置为 main 分支的 pull request 事件和 push 事件
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code (检出代码)
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js (设置 node 版本)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install dependencies (安装依赖)
+        run: npm install
+      # en: The template does not contain test cases. If you need to use test cases, you can uncomment it
+      # zh: 初始化模板中不包含测试用例，如需使用测试用例，可取消注释
+      # - name: Test (测试)
+      #   run: pnpm run test
+
+      - name: Build (构建)
+        run: npm run build
+
+      - name: Deploy to GitHub Pages (部署到 GitHub Pages)
+        uses: peaceiris/actions-gh-pages@v3
+        # en: Only deploy when the push event of the master branch is triggered
+        # zh: 仅在触发 main 分支的 push 事件时部署
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
